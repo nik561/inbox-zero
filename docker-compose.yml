@@ -10,8 +10,6 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
     volumes:
       - database-data:/var/lib/postgresql/data/
-    ports:
-      - ${POSTGRES_PORT:-5432}:5432
     networks:
       - inbox-zero-network
 
@@ -52,8 +50,6 @@ services:
     depends_on:
       - db
       - redis
-    ports:
-      - ${WEB_PORT:-3000}:3000
     networks:
       - inbox-zero-network
     environment:
